@@ -18,3 +18,4 @@ libs/
 *.pdf
 misc/
 .vscode
+tmp

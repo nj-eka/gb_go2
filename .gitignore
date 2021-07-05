@@ -16,3 +16,5 @@
 
 libs/
 *.pdf
+misc/
+.vscode

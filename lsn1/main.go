@@ -2,6 +2,7 @@ package main
 
 func main() {
 	HandlePanic()
-	CreateFiles("tmp", 10000)
+	TestTracedError()
+	CreateFiles("tmp", 1000)
 	RecoverPanicInGoroutine()
 }

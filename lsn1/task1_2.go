@@ -29,6 +29,10 @@ func (e *TracedError) Error() string {
 	return buf.String()
 }
 
+func (e *TracedError) Unwrap() error {
+	return e.Err
+}
+
 func NewTracedError(value interface{}) error {
 	var err error
 	switch v := value.(type) {
@@ -62,4 +66,14 @@ func HandlePanic() {
 		}
 	}()
 	panic(errors.New("Paaaanic"))
+}
+
+func TestTracedError() {
+	var someErr = errors.New("some error")
+
+	err := fmt.Errorf("found error: %w", someErr)
+	fmt.Println(errors.Is(err, someErr))
+
+	tracedErr := NewTracedError(someErr)
+	fmt.Println(errors.Is(tracedErr, someErr))
 }

@@ -18,12 +18,12 @@ var done = make(chan struct{})
 func doWork(outerCtx context.Context, done chan <- struct{}) {
 	localCtx, cancel := context.WithTimeout(context.Background(), workTimeout)
 	defer cancel()
-	defer close(done)
 	select {
 	case <-outerCtx.Done():
 		fmt.Println("External stop goroutine.")
 	case <-localCtx.Done():
 		fmt.Println("Internal stop goroutine.")
+		close(done)
 	}
 }
 

@@ -18,4 +18,5 @@ libs/
 *.pdf
 misc/
 .vscode
+.idea
 tmp

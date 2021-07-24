@@ -1,5 +1,5 @@
 package primes
 
-func echoExampleSieve() {
+func ExampleSieve() {
 	Sieve(10000)
 }

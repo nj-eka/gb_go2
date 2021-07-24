@@ -77,3 +77,4 @@ func TestTracedError() {
 	tracedErr := NewTracedError(someErr)
 	fmt.Println(errors.Is(tracedErr, someErr))
 }
+

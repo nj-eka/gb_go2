@@ -28,3 +28,17 @@ func RecoverPanicInGoroutine() {
 func foo() {
 	panic(errors.New("error"))
 }
+
+//func Run() (err error) {
+//	defer func() {
+//		if r := recover(); r != nil {
+//			switch t := r.(type) {
+//			case string:
+//				err = error.New(t)
+//			case error:
+//				err = t
+//			}
+//		}
+//	}()
+//	panic("A panic")
+//}

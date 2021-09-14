@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-const(
+const (
 	attempts = 10
 	jobs     = 1000
 	workers  = 20
@@ -11,7 +11,7 @@ const(
 func TestAtomicWorkers(t *testing.T) {
 	for i := 0; i < attempts; i++ {
 		result := runAtomicWorkers(jobs, workers)
-		if result != jobs{
+		if result != jobs {
 			t.Errorf("atomic: Result = %d | Expected %d;\n", result, jobs)
 		}
 	}
@@ -20,7 +20,7 @@ func TestAtomicWorkers(t *testing.T) {
 func TestMutexWorkers(t *testing.T) {
 	for i := 0; i < attempts; i++ {
 		result := runMutexWorkers(jobs, workers)
-		if result != jobs{
+		if result != jobs {
 			t.Errorf("mutex: Result = %d | Expected %d;\n", result, jobs)
 		}
 	}

@@ -1,11 +1,11 @@
-// С помощью пула воркеров написать программу, которая запускает 1000 горутин,
-// каждая из которых увеличивает число на 1.
-// Дождаться завершения всех горутин и убедиться, что при каждом запуске программы итоговое число равно 1000.
-
+//Написать программу, которая использует мьютекс для безопасного доступа к данным
+//из нескольких потоков. Выполните трассировку программы
 package main
 
 import (
 	"fmt"
+	"os"
+	"runtime/trace"
 	"sync"
 )
 
@@ -42,4 +42,12 @@ func runMutexWorkers(countGoroutines int, countWorkers int) uint64 {
 	wg.Wait()
 	fmt.Printf("mutex: Counter = %d\n", mc.value)
 	return mc.value
+}
+
+func main() {
+	const rounds, workers = 100000, 100
+	if err := trace.Start(os.Stderr); err == nil {
+		defer trace.Stop()
+	}
+	runMutexWorkers(rounds, workers)
 }

@@ -10,7 +10,6 @@ import (
 
 func main() {
 
-
 	// 0.2
 	fmt.Println("0.2: умножение двух\nматриц.")
 	//m1 := [][]int{
@@ -23,9 +22,9 @@ func main() {
 	//	{5, 5, 5},
 	//	{6, 6, 6},
 	//}
-	m1 := generateMatrix(5,4)
+	m1 := generateMatrix(5, 4)
 	fmt.Printf("m1:\n%v\n", m1)
-	m2 := generateMatrix(4,3)
+	m2 := generateMatrix(4, 3)
 	fmt.Printf("m2:\n%v\n", m2)
 	mr, _ := multiplyMatrices(m1, m2)
 	fmt.Printf("m1 * m2:\n%v\n", mr)
@@ -64,8 +63,8 @@ func mutexUnlock(m *sync.Mutex) {
 	m.Unlock()
 }
 
-func generateMatrix(rowNum, colNum int) [][]int{
-	m :=  make([][]int, rowNum)
+func generateMatrix(rowNum, colNum int) [][]int {
+	m := make([][]int, rowNum)
 	rand.Seed(time.Now().UnixNano())
 	min, max := -1000, 1000
 	for i := 0; i < rowNum; i++ {
@@ -78,7 +77,7 @@ func generateMatrix(rowNum, colNum int) [][]int{
 }
 
 // C[i,j] = Sum(A[i,k]*B[k,j])
-func multiplyMatrices (m1 [][]int, m2 [][]int) ([][]int, error) {
+func multiplyMatrices(m1 [][]int, m2 [][]int) ([][]int, error) {
 	if len(m2) != len(m1[0]) {
 		return nil, errors.New("inapplicable dimensions")
 	}

@@ -1,6 +1,8 @@
 package goanalyzer
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestGetGoFuncCallCount(t *testing.T) {
 	type args struct {
@@ -14,7 +16,7 @@ func TestGetGoFuncCallCount(t *testing.T) {
 		wantErr   bool
 	}{
 		{"GetGoFuncCallCount4sieve_channel",
-		args{"../../lsn2/gosieve_channel.go", "filter"},
+		args{"../../lsn2/primes/gosieve_channel.go", "filter"},
 		1,
 		false,
 		},
